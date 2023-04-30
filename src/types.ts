@@ -4,8 +4,10 @@ import type { AppRouter } from "./server/api/root";
 
 type RouterOutputs = inferRouterOutputs<AppRouter>;
 type allTodosOutput = RouterOutputs["todo"]["all"];
+type allProjectsOutput = RouterOutputs["project"]["all"];
 
 export type Todo = allTodosOutput[number];
+export type Project = allProjectsOutput[number];
 
 export const todoInput = z
   .string({
