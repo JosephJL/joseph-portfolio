@@ -53,10 +53,10 @@ function Home() {
               alt="Joseph Image Here"
             />
             <p className="mx-24 mt-12 text-center text-white">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio
-              facilis illo placeat beatae iure ratione dolor asperiores?
-              Exercitationem voluptas quo ipsum, laborum obcaecati blanditiis
-              soluta eos voluptates! Debitis, nemo sapiente!
+              Enjoy seeing the products of experimentation and iteration come to
+              life in the projects that I work on. I also have a strong passion
+              for giving back to the community especially sharing on the
+              challenges faced during projects.
             </p>
           </div>
           <div className="w-full items-center justify-center text-center lg:flex lg:justify-start lg:text-left">
