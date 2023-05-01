@@ -8,7 +8,7 @@ export default function Projects() {
   if (isError) return <div>Error fetching projects</div>;
   return (
     <>
-      <div className="lg:grid-cols grid md:grid-cols-2">
+      <div className="lg:grid-cols grid ">
         {projects.length
           ? projects.map((project) => {
               return <Project key={project.id} project={project} />;
