@@ -1,13 +1,9 @@
-import { z } from "zod";
+// import { z } from "zod";
 
-import {
-  createTRPCRouter,
-  publicProcedure,
-  protectedProcedure,
-} from "~/server/api/trpc";
+import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 export const projectRouter = createTRPCRouter({
-  all: publicProcedure.query(async () => {
+  all: publicProcedure.query(() => {
     return [
       {
         id: "1",

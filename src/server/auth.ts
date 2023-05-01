@@ -4,9 +4,9 @@ import {
   type NextAuthOptions,
   type DefaultSession,
 } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
+// import DiscordProvider from "next-auth/providers/discord";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { env } from "~/env.mjs";
+// import { env } from "~/env.mjs";
 import { prisma } from "~/server/db";
 import EmailProvider from "next-auth/providers/email";
 
@@ -49,18 +49,22 @@ export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     EmailProvider({
-      server:{
-        host: process.env.EMAIL_SERVER || 'https://localhost:3000',
+      server: {
+        host: process.env.EMAIL_SERVER || "https://localhost:3000",
         port: 587,
         auth: {
-          user: 'apikey',
+          user: "apikey",
           pass: process.env.EMAIL_PASSWORD || "",
         },
       },
-      from : process.env.EMAIL_FROM || 'default@default.com',
-      ... (process.env.NODE_ENV != 'production' ? {sendVerificationRequest({url}){
-        console.log('Login link',url);
-      }} : {}),
+      from: process.env.EMAIL_FROM || "default@default.com",
+      ...(process.env.NODE_ENV != "production"
+        ? {
+            sendVerificationRequest({ url }) {
+              console.log("Login link", url);
+            },
+          }
+        : {}),
     }),
     /**
      * ...add more providers here.

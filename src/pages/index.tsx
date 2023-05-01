@@ -1,17 +1,18 @@
-import { type NextPage } from "next";
+// import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
-import { signIn, signOut, useSession } from "next-auth/react";
+// import Link from "next/link";
+import { useSession } from "next-auth/react";
+// import { signIn, signOut, useSession } from "next-auth/react";
 
-import { api } from "~/utils/api";
-import Todos from "~/component/Todos";
-import CreateTodo from "~/component/CreateTodo";
+// import { api } from "~/utils/api";
+// import Todos from "~/component/Todos";
+// import CreateTodo from "~/component/CreateTodo";
 import img from "../../public/img/joseph.jpg";
 import Projects from "~/component/Projects";
 
 function Home() {
   const { data: sessionData } = useSession();
-
+  console.log(sessionData);
   return (
     <>
       <Head>
@@ -45,7 +46,7 @@ function Home() {
           </div> */}
           <div className="flex flex-col items-center justify-center">
             <h3 className="animate-typing overflow-hidden whitespace-nowrap font-mono text-xl font-bold text-white">
-              Hi, I'm Joseph.
+              Hi, I&apos;m Joseph.
             </h3>
             <img
               className="mt-12 h-48 w-auto rounded-full"
@@ -60,7 +61,9 @@ function Home() {
             </p>
           </div>
           <div className="w-full items-center justify-center text-center lg:flex lg:justify-start lg:text-left">
-            <h3 className="font-bold text-white">Projects I've worked on</h3>
+            <h3 className="font-bold text-white">
+              Projects I&apos;ve worked on
+            </h3>
           </div>
           <Projects />
           {/* <div className="lg:grid-cols grid md:grid-cols-2">

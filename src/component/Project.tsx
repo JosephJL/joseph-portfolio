@@ -1,14 +1,14 @@
 import Image from "next/image";
-import { api } from "../utils/api";
+// import { api } from "../utils/api";
 import type { Project } from "~/types";
-import { Accordion, Button } from "flowbite-react";
+import { Button } from "flowbite-react";
 
 type ProjectProp = {
   project: Project;
 };
 
 export default function Project({ project }: ProjectProp) {
-  const { id, title, text, img, github, date } = project;
+  const { title, text, img, github } = project;
 
   return (
     <>
@@ -41,7 +41,7 @@ export default function Project({ project }: ProjectProp) {
               {github.length
                 ? github.map((link, index) => {
                     return (
-                      <Button className="mr-4" href={link}>
+                      <Button key={index} className="mr-4" href={link}>
                         Github {index > 0 ? "Backend" : "Frontend"}
                       </Button>
                     );

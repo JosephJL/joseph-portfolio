@@ -9,7 +9,7 @@ export default function CreateTodo() {
   const trpc = api.useContext();
   const { mutate } = api.todo.create.useMutation({
     onSettled: async () => {
-      trpc.todo.all.invalidate();
+      await trpc.todo.all.invalidate();
     },
   });
 
