@@ -16,13 +16,15 @@ export default function Project({ project }: ProjectProp) {
 
   return (
     <>
-      <div className="flex min-h-full w-full items-center justify-center p-4">
+      <div className="flex min-h-full w-full flex-wrap items-center justify-center p-4">
         <div
-          className={`flex h-auto w-full justify-start overflow-hidden rounded-lg border shadow-lg dark:border-gray-800 ${
-            parseInt(id) % 2 != 0 ? "flex-row-reverse	" : "flex-row"
+          className={`flex h-auto w-full justify-start overflow-hidden ${
+            parseInt(id) % 2 != 0
+              ? "flex-col sm:flex-row-reverse	"
+              : "flex-col sm:flex-row"
           }`}
         >
-          <div className="relative flex w-full items-center justify-center border-b dark:border-gray-800">
+          <div className="relative flex w-full flex-col items-center justify-center">
             <Image
               alt="Project Image Here"
               src={img}
@@ -36,81 +38,24 @@ export default function Project({ project }: ProjectProp) {
                 fill: "true",
               }}
             />
-          </div>
-          <div className="w-full border-b p-4 dark:border-gray-800">
-            <span className="text-xl text-white">{title}</span>
-            <p className="py-1 text-sm text-white">{text}</p>
-          </div>
-          <div className="flex w-full flex-row-reverse items-center justify-start p-4">
-            {/* <div className="w-full border-b px-4 py-2 dark:border-gray-800">
-              <label
-                htmlFor="feedback"
-                className="text-xs font-semibold uppercase text-gray-500 dark:text-gray-400"
-              >
-                Leave a comment!
-              </label>
-              <textarea
-                id="feedback"
-                className="mt-2 w-full rounded p-2 outline-none ring-2 ring-gray-300 focus-visible:ring-gray-500 "
-              />
-            </div>
-            <div className="w-full border-b p-4 dark:border-gray-800">
-              <span className="text-xl text-white">{title}</span>
-              <p className="py-1 text-sm text-white">{text}</p>
-            </div>
-            <div className="flex w-full flex-row-reverse items-center justify-start p-4">
+            <div className="flex flex-row">
               {github.length
                 ? github.map((link, index) => {
                     return (
-                      <Button key={index} className="mr-4" href={link}>
+                      <Button key={index} className="m-4" href={link}>
                         Github {index > 0 ? "Backend" : "Frontend"}
                       </Button>
                     );
                   })
                 : "Repo Coming soon"}
-              {/* <div className="w-full border-b px-4 py-2 dark:border-gray-800">
-                <label
-                  htmlFor="feedback"
-                  className="text-xs font-semibold uppercase text-gray-500 dark:text-gray-400"
-                >
-                  Leave a comment!
-                </label>
-                <textarea
-                  id="feedback"
-                  className="mt-2 w-full rounded p-2 outline-none ring-2 ring-gray-300 focus-visible:ring-gray-500 "
-                />
-              </div> */}
+            </div>
+          </div>
+          <div className="w-full p-4 ">
+            <span className="text-xl text-white">{title}</span>
+            <p className="py-1 text-sm text-white">{text}</p>
           </div>
         </div>
       </div>
-      {/* <div>
-          <Accordion
-            collapseAll={true}
-            className="w-full border-b px-4 py-2 dark:border-gray-800"
-          >
-            <Accordion.Panel>
-              <Accordion.Title>Leave a comment!</Accordion.Title>
-              <Accordion.Content>
-                <div>
-                  <textarea
-                    id="feedback"
-                    className="mt-2 w-full rounded p-2 outline-none ring-2 ring-gray-300 focus-visible:ring-gray-500 "
-                  />
-                </div>
-                <div className="flex w-full justify-end">
-                  <div className="m-2">
-                    <Button
-                      type="button"
-                      className="rounded-lg bg-gray-800 px-4 py-2 text-white hover:bg-gray-700 active:bg-gray-600"
-                    >
-                      Send
-                    </Button>
-                  </div>
-                </div>
-              </Accordion.Content>
-            </Accordion.Panel>
-          </Accordion>
-        </div> */}
     </>
   );
 }

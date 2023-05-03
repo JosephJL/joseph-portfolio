@@ -8,7 +8,7 @@ export default function Projects() {
   if (isError) return <div>Error fetching projects</div>;
   return (
     <>
-      <div className="lg:grid-cols grid">
+      <div className="align-center flex flex-col justify-center">
         {projects.length
           ? projects.map((project, index) => {
               console.log("index is", index);

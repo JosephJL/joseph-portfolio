@@ -21,7 +21,7 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#0021b5] to-[#15162c]">
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 lg:px-64">
           {/* {sessionData && (
             <div className="grid grid-cols-1 gap-4 md:gap-8">
               <div className="flex flex-col gap-4 rounded-xl bg-white/10 p-4 text-white">
@@ -53,17 +53,18 @@ function Home() {
               src={img.src}
               alt="Joseph Image Here"
             />
-            <p className="mx-24 mt-12 text-center text-white">
-              Enjoy seeing the products of experimentation and iteration come to
-              life in the projects that I work on. I also have a strong passion
-              for giving back to the community especially sharing on the
+            <p className="m-4 text-center text-white sm:mx-24 sm:mt-12">
+              I enjoy seeing the products of experimentation and iteration come
+              to life in the projects that I work on. I also have a strong
+              passion for giving back to the community especially sharing on the
               challenges faced during projects.
             </p>
           </div>
           <div className="w-full items-center justify-center text-center lg:flex lg:justify-start lg:text-left">
-            <h3 className="font-bold text-white">
+            <p className="bg-light text-xl font-bold text-white">
               Projects I&apos;ve worked on
-            </h3>
+            </p>
+            <hr />
           </div>
           <Projects />
           {/* <div className="lg:grid-cols grid md:grid-cols-2">
