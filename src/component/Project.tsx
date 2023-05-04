@@ -25,19 +25,21 @@ export default function Project({ project }: ProjectProp) {
           }`}
         >
           <div className="relative flex w-full flex-col items-center justify-center">
-            <Image
-              alt="Project Image Here"
-              src={img}
-              width={0}
-              height={0}
-              sizes="100vw"
-              style={{
-                width: "100%",
-                height: "auto",
-                objectFit: "cover",
-                fill: "true",
-              }}
-            />
+            <div className="bg-[#0b1a61] hover:bg-transparent">
+              <Image
+                className="opacity-60 hover:opacity-80"
+                alt="Project Image Here"
+                src={img}
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
             <div className="flex flex-row">
               {github.length
                 ? github.map((link, index) => {
@@ -53,6 +55,7 @@ export default function Project({ project }: ProjectProp) {
           <div className="w-full p-4 ">
             <span className="text-xl text-white">{title}</span>
             <p className="py-1 text-sm text-white">{text}</p>
+            <div className="flex flex-row"></div>
           </div>
         </div>
       </div>
