@@ -3,6 +3,9 @@ import Image from "next/image";
 import type { Project } from "~/types";
 import { Button } from "flowbite-react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock, faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
+
 type ProjectProp = {
   project: Project;
 };
@@ -12,7 +15,7 @@ type KeyProp = {
 };
 
 export default function Project({ project }: ProjectProp) {
-  const { id, title, text, img, github } = project;
+  const { id, title, text, img, github, date } = project;
 
   return (
     <>
@@ -25,9 +28,9 @@ export default function Project({ project }: ProjectProp) {
           }`}
         >
           <div className="relative flex w-full flex-col items-center justify-center">
-            <div className="bg-[#0b1a61] hover:bg-transparent">
+            <div className="bg-[#0b1a61] p-4 hover:bg-transparent">
               <Image
-                className="opacity-60 hover:opacity-80"
+                className="p-2 opacity-60 hover:opacity-80"
                 alt="Project Image Here"
                 src={img}
                 width={0}
@@ -52,10 +55,31 @@ export default function Project({ project }: ProjectProp) {
                 : "Repo Coming soon"}
             </div>
           </div>
-          <div className="w-full p-4 ">
-            <span className="text-xl text-white">{title}</span>
-            <p className="py-1 text-sm text-white">{text}</p>
-            <div className="flex flex-row"></div>
+          <div className="w-full p-4">
+            <div className="p-2 hover:bg-black">
+              <span className="text-xl font-bold text-white">{title}</span>
+              <p className="py-1 text-sm text-white">{text}</p>
+            </div>
+            <div className="p-2 hover:bg-black">
+              <p className="text-lg	font-semibold text-white">
+                Duration &nbsp;
+                <FontAwesomeIcon className="text-white" icon={faClock} />
+              </p>
+              <p className="py-1 text-sm text-white">
+                {date.split(",")[0]}{" "}
+                <FontAwesomeIcon
+                  className="text-white"
+                  icon={faArrowRightLong}
+                />{" "}
+                {date.split(",")[1]}
+              </p>
+            </div>
+            <div className="p-2 hover:bg-black">
+              <p className="text-lg font-semibold text-white">Tech Stack</p>
+              <p className="py-1 text-sm text-white">
+                Javascript &#9475; Vue &#9475; Firebase
+              </p>
+            </div>
           </div>
         </div>
       </div>

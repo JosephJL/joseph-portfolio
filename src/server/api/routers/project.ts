@@ -8,7 +8,7 @@ export const projectRouter = createTRPCRouter({
       {
         id: "1",
         title: "LaptopNomadCo",
-        text: "First experience with web design, nuxt server side rendering with stripe payment integration",
+        text: "E-commerce website with Stripe payment and checkout",
         img: "/img/laptopNomadMain.jpg",
         github: ["https://github.com/JSL-Tech/laptopnomad"],
         date: "3-2021,5-2021",
@@ -16,7 +16,7 @@ export const projectRouter = createTRPCRouter({
       {
         id: "2",
         title: "Escapify",
-        text: " 'Community' Section uses Firestore Snapshot listener for realtime conversations",
+        text: "Travel website with live community page to share travel plans / posts",
         img: "/img/escapifyMain.png",
         github: ["https://github.com/JosephJL/escapify"],
         date: "10-2022,11-2022",
@@ -24,7 +24,7 @@ export const projectRouter = createTRPCRouter({
       {
         id: "3",
         title: "Form Management System (FMS)",
-        text: " Containerization with Docker and Docker compose ",
+        text: "Form management system for approval process with multiple stakeholders",
         img: "/img/fmsMain.png",
         github: [
           "https://github.com/JosephJL/fms-frontend",
@@ -35,7 +35,7 @@ export const projectRouter = createTRPCRouter({
       {
         id: "4",
         title: "Gobook",
-        text: " Explored use case of Kafka as a realtime database for content-based-recommendation ",
+        text: "Class booking website with real-time recommendations using Content-based-filtering",
         img: "/img/goBookMain.png",
         github: [
           "https://github.com/TeoSean00/GoBook-Frontend",
