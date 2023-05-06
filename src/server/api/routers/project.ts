@@ -12,6 +12,8 @@ export const projectRouter = createTRPCRouter({
         img: "/img/laptopNomadMain.jpg",
         github: ["https://github.com/JSL-Tech/laptopnomad"],
         date: "3-2021,5-2021",
+        techs: ["Vue", "Firebase", "Stripe"],
+        article: false,
       },
       {
         id: "2",
@@ -20,6 +22,8 @@ export const projectRouter = createTRPCRouter({
         img: "/img/escapifyMain.png",
         github: ["https://github.com/JosephJL/escapify"],
         date: "10-2022,11-2022",
+        techs: ["Vue", "Firebase", "TravelAPI"],
+        article: false,
       },
       {
         id: "3",
@@ -31,6 +35,8 @@ export const projectRouter = createTRPCRouter({
           "https://github.com/JosephJL/fms-backend",
         ],
         date: "2-2023,4-2023",
+        techs: ["Springboot", "MongoDB", "Docker"],
+        article: false,
       },
       {
         id: "4",
@@ -42,6 +48,8 @@ export const projectRouter = createTRPCRouter({
           "https://github.com/JosephJL/Gobook-Backend",
         ],
         date: "3-2023,4-2023",
+        techs: ["Springboot", "Flask", "Docker", "Stripe"],
+        article: false,
       },
     ];
   }),

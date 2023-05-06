@@ -4,7 +4,11 @@ import type { Project } from "~/types";
 import { Button } from "flowbite-react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
+import {
+  faClock,
+  faArrowRightLong,
+  faMicrochip,
+} from "@fortawesome/free-solid-svg-icons";
 
 type ProjectProp = {
   project: Project;
@@ -15,7 +19,7 @@ type KeyProp = {
 };
 
 export default function Project({ project }: ProjectProp) {
-  const { id, title, text, img, github, date } = project;
+  const { id, title, text, img, github, date, techs } = project;
 
   return (
     <>
@@ -28,7 +32,7 @@ export default function Project({ project }: ProjectProp) {
           }`}
         >
           <div className="relative flex w-full flex-col items-center justify-center">
-            <div className="bg-[#0b1a61] p-4 hover:bg-transparent">
+            <div className="bg-white p-4 hover:bg-transparent dark:bg-[#0b1a61]">
               <Image
                 className="p-2 opacity-60 hover:opacity-80"
                 alt="Project Image Here"
@@ -47,7 +51,11 @@ export default function Project({ project }: ProjectProp) {
               {github.length
                 ? github.map((link, index) => {
                     return (
-                      <Button key={index} className="m-4" href={link}>
+                      <Button
+                        key={index}
+                        className="m-4 bg-black text-white dark:bg-white dark:text-gray-900"
+                        href={link}
+                      >
                         Github {index > 0 ? "Backend" : "Frontend"}
                       </Button>
                     );
@@ -56,28 +64,55 @@ export default function Project({ project }: ProjectProp) {
             </div>
           </div>
           <div className="w-full p-4">
-            <div className="p-2 hover:bg-black">
-              <span className="text-xl font-bold text-white">{title}</span>
-              <p className="py-1 text-sm text-white">{text}</p>
-            </div>
-            <div className="p-2 hover:bg-black">
-              <p className="text-lg	font-semibold text-white">
-                Duration &nbsp;
-                <FontAwesomeIcon className="text-white" icon={faClock} />
+            <div className="p-2 dark:hover:bg-black">
+              <span className="text-xl font-bold text-gray-900 dark:text-white">
+                {title}
+              </span>
+              <p className="py-1 text-sm text-gray-900 dark:text-white">
+                {text}
               </p>
-              <p className="py-1 text-sm text-white">
+            </div>
+            <div className="p-2 dark:hover:bg-black">
+              <p className="text-lg	font-semibold text-gray-900 dark:text-white">
+                Duration &nbsp;
+                <FontAwesomeIcon
+                  className="text-gray-900 dark:text-white"
+                  icon={faClock}
+                />
+              </p>
+              <p className="py-1 text-sm text-gray-900 dark:text-white">
                 {date.split(",")[0]}{" "}
                 <FontAwesomeIcon
-                  className="text-white"
+                  className="text-gray-900 dark:text-white"
                   icon={faArrowRightLong}
                 />{" "}
                 {date.split(",")[1]}
               </p>
             </div>
-            <div className="p-2 hover:bg-black">
-              <p className="text-lg font-semibold text-white">Tech Stack</p>
-              <p className="py-1 text-sm text-white">
-                Javascript &#9475; Vue &#9475; Firebase
+            <div className="p-2 dark:hover:bg-black">
+              <p className="text-lg font-semibold text-gray-900 dark:text-white">
+                Tech Stack &nbsp;{" "}
+                <FontAwesomeIcon
+                  className="text-gray-900 dark:text-white"
+                  icon={faMicrochip}
+                />
+              </p>
+
+              <p className="py-1 text-sm text-gray-900 dark:text-white">
+                {techs.length
+                  ? techs.map((tech, index) => {
+                      return (
+                        <span key={index}>
+                          {tech}{" "}
+                          {index != techs.length - 1 ? (
+                            <span>&#9475;</span>
+                          ) : (
+                            <span></span>
+                          )}{" "}
+                        </span>
+                      );
+                    })
+                  : "Projects coming soon!"}
               </p>
             </div>
           </div>
