@@ -13,15 +13,15 @@ export default function About() {
                   Docs
                 </h2>
                 <p className="font-light text-gray-500 dark:text-gray-400 sm:text-xl">
-                  For now I'm using this section to provide more details on my
-                  contributions , experiences while embarking on the projects
-                  I've done.
+                  For now I&apos;m using this section to provide more details on
+                  my contributions , experiences while embarking on the projects
+                  I&apos;ve done.
                 </p>
                 <p className="font-light text-gray-500 dark:text-gray-400 sm:text-sm">
                   I have thoughts on grouping my writing into two categories,
-                  "experiences" and "tutorials" , the idea for tutorials is to
-                  attempt to pass on what I've learnt to hopefully make coding
-                  more approachable
+                  &quot;experiences&quot; and &quot;tutorials&quot; , the idea
+                  for tutorials is to attempt to pass on what I&apos;ve learnt
+                  to hopefully make coding more approachable
                 </p>
               </div>
               <div className="grid gap-8 lg:grid-cols-2">
