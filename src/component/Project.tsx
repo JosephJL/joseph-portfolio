@@ -10,7 +10,7 @@ import {
   faMicrochip,
   faBullseye,
 } from "@fortawesome/free-solid-svg-icons";
-import { faGit, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 type ProjectProp = {
   project: Project;
