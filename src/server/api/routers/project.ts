@@ -13,6 +13,7 @@ export const projectRouter = createTRPCRouter({
         github: ["https://github.com/JSL-Tech/laptopnomad"],
         date: "3-2021,5-2021",
         techs: ["Vue", "Firebase", "Stripe"],
+        tags: ["Personal", "Noob"],
         article: false,
       },
       {
@@ -23,6 +24,7 @@ export const projectRouter = createTRPCRouter({
         github: ["https://github.com/JosephJL/escapify"],
         date: "10-2022,11-2022",
         techs: ["Vue", "Firebase", "TravelAPI"],
+        tags: ["SMU", "WAD2 Module"],
         article: false,
       },
       {
@@ -36,6 +38,7 @@ export const projectRouter = createTRPCRouter({
         ],
         date: "2-2023,4-2023",
         techs: ["Springboot", "MongoDB", "Docker"],
+        tags: ["SMU", "ESD Module"],
         article: false,
       },
       {
@@ -49,6 +52,7 @@ export const projectRouter = createTRPCRouter({
         ],
         date: "3-2023,4-2023",
         techs: ["Springboot", "Flask", "Docker", "Stripe"],
+        tags: ["SMU", "OOP Module"],
         article: false,
       },
     ];

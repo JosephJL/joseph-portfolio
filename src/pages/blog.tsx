@@ -5,16 +5,23 @@ export default function About() {
     <>
       <main className="flex min-h-screen flex-col items-center justify-center bg-white dark:bg-[#0b1a61]">
         <Navbar />
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-4 lg:px-64 lg:py-16">
+        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-4 lg:px-64 lg:py-8">
           <section>
-            <div className="mx-auto max-w-screen-xl px-4 py-4 lg:px-6 lg:py-8">
+            <div className="mx-auto max-w-screen-xl py-2 lg:px-6">
               <div className="mx-auto mb-8 max-w-screen-sm text-center lg:mb-16">
                 <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white lg:text-4xl">
-                  My Blog
+                  Docs
                 </h2>
                 <p className="font-light text-gray-500 dark:text-gray-400 sm:text-xl">
-                  We use an agile approach to test assumptions and connect with
-                  the needs of your audience early and often.
+                  For now I'm using this section to provide more details on my
+                  contributions , experiences while embarking on the projects
+                  I've done.
+                </p>
+                <p className="font-light text-gray-500 dark:text-gray-400 sm:text-sm">
+                  I have thoughts on grouping my writing into two categories,
+                  "experiences" and "tutorials" , the idea for tutorials is to
+                  attempt to pass on what I've learnt to hopefully make coding
+                  more approachable
                 </p>
               </div>
               <div className="grid gap-8 lg:grid-cols-2">

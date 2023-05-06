@@ -8,7 +8,9 @@ import {
   faClock,
   faArrowRightLong,
   faMicrochip,
+  faBullseye,
 } from "@fortawesome/free-solid-svg-icons";
+import { faGit, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 type ProjectProp = {
   project: Project;
@@ -19,7 +21,7 @@ type KeyProp = {
 };
 
 export default function Project({ project }: ProjectProp) {
-  const { id, title, text, img, github, date, techs } = project;
+  const { id, title, text, img, github, date, techs, tags } = project;
 
   return (
     <>
@@ -32,9 +34,9 @@ export default function Project({ project }: ProjectProp) {
           }`}
         >
           <div className="relative flex w-full flex-col items-center justify-center">
-            <div className="bg-white p-4 hover:bg-transparent dark:bg-[#0b1a61]">
+            <div className="bg-white p-2 hover:bg-transparent dark:bg-[#0b1a61]">
               <Image
-                className="p-2 opacity-60 hover:opacity-80"
+                className="opacity-60 hover:opacity-80"
                 alt="Project Image Here"
                 src={img}
                 width={0}
@@ -53,10 +55,19 @@ export default function Project({ project }: ProjectProp) {
                     return (
                       <Button
                         key={index}
-                        className="m-4 bg-black text-white dark:bg-white dark:text-gray-900"
+                        className="mx-2 mt-2 bg-black text-white dark:bg-white dark:text-gray-900"
                         href={link}
                       >
-                        Github {index > 0 ? "Backend" : "Frontend"}
+                        {index > 0 && github.length > 1
+                          ? "Backend"
+                          : github.length > 1
+                          ? "Frontend"
+                          : ""}
+                        <FontAwesomeIcon
+                          className="mx-1"
+                          icon={faGithub}
+                          size="xl"
+                        />
                       </Button>
                     );
                   })
@@ -64,15 +75,37 @@ export default function Project({ project }: ProjectProp) {
             </div>
           </div>
           <div className="w-full p-4">
-            <div className="p-2 dark:hover:bg-black">
+            <div className="px-2 py-1 dark:hover:bg-black">
               <span className="text-xl font-bold text-gray-900 dark:text-white">
                 {title}
               </span>
-              <p className="py-1 text-sm text-gray-900 dark:text-white">
-                {text}
+              {/* <p className="text-sm text-gray-900 dark:text-white">{text}</p> */}
+              <p className="m-1 text-sm text-gray-900 dark:text-white">
+                {tags.length
+                  ? tags.map((tag, index) => {
+                      return (
+                        <span
+                          className="mr-2 rounded border border-gray-500 bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-400"
+                          key={index}
+                        >
+                          {tag}{" "}
+                        </span>
+                      );
+                    })
+                  : ""}
               </p>
             </div>
-            <div className="p-2 dark:hover:bg-black">
+            <div className="px-2 py-1 dark:hover:bg-black">
+              <p className="text-lg	font-semibold text-gray-900 dark:text-white">
+                Purpose &nbsp;
+                <FontAwesomeIcon
+                  className="p-none text-gray-900 dark:text-white"
+                  icon={faBullseye}
+                />
+              </p>
+              <p className="text-sm text-gray-900 dark:text-white">{text}</p>
+            </div>
+            <div className="hidden px-2 py-1 dark:hover:bg-black md:block">
               <p className="text-lg	font-semibold text-gray-900 dark:text-white">
                 Duration &nbsp;
                 <FontAwesomeIcon
@@ -80,7 +113,7 @@ export default function Project({ project }: ProjectProp) {
                   icon={faClock}
                 />
               </p>
-              <p className="py-1 text-sm text-gray-900 dark:text-white">
+              <p className="text-sm text-gray-900 dark:text-white">
                 {date.split(",")[0]}{" "}
                 <FontAwesomeIcon
                   className="text-gray-900 dark:text-white"
@@ -89,7 +122,7 @@ export default function Project({ project }: ProjectProp) {
                 {date.split(",")[1]}
               </p>
             </div>
-            <div className="p-2 dark:hover:bg-black">
+            <div className="px-2 py-1 dark:hover:bg-black">
               <p className="text-lg font-semibold text-gray-900 dark:text-white">
                 Tech Stack &nbsp;{" "}
                 <FontAwesomeIcon
@@ -98,7 +131,7 @@ export default function Project({ project }: ProjectProp) {
                 />
               </p>
 
-              <p className="py-1 text-sm text-gray-900 dark:text-white">
+              <p className="text-sm text-gray-900 dark:text-white">
                 {techs.length
                   ? techs.map((tech, index) => {
                       return (
@@ -112,7 +145,7 @@ export default function Project({ project }: ProjectProp) {
                         </span>
                       );
                     })
-                  : "Projects coming soon!"}
+                  : ""}
               </p>
             </div>
           </div>

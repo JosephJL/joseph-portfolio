@@ -24,7 +24,7 @@ export default function Navbar() {
         />
       </button>
       <button type="button" onClick={() => router.push("/blog")}>
-        Blog{" "}
+        Docs{" "}
         <FontAwesomeIcon
           className="text-gray-900 dark:text-white"
           icon={faPenNib}
