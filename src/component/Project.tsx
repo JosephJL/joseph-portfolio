@@ -16,10 +16,6 @@ type ProjectProp = {
   project: Project;
 };
 
-type KeyProp = {
-  key: number;
-};
-
 export default function Project({ project }: ProjectProp) {
   const { id, title, text, img, github, date, techs, tags } = project;
 

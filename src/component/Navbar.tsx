@@ -13,6 +13,7 @@ export default function Navbar() {
   const router = useRouter();
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
+  console.log(currentTheme);
 
   return (
     <div className="flex w-full flex-row justify-center space-x-4 p-4 text-gray-900 dark:text-white">
