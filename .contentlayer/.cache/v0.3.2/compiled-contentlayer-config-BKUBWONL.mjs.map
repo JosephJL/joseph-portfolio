@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../contentlayer.config.js"],
+  "sourcesContent": ["import { defineDocumentType, makeSource } from \"contentlayer/source-files\";\n\nexport const Post = defineDocumentType(() => ({\n  name: \"Post\",\n  contentType: \"mdx\",\n}));\n\nexport default makeSource({\n  documentTypes: [Post],\n});\n"],
+  "mappings": ";AAAA,SAAS,oBAAoB,kBAAkB;AAExC,IAAM,OAAO,mBAAmB,OAAO;AAAA,EAC5C,MAAM;AAAA,EACN,aAAa;AACf,EAAE;AAEF,IAAO,8BAAQ,WAAW;AAAA,EACxB,eAAe,CAAC,IAAI;AACtB,CAAC;",
+  "names": []
+}
