@@ -16,7 +16,7 @@ export default function Navbar() {
   console.log(currentTheme);
 
   return (
-    <div className="flex w-full flex-row justify-center space-x-4 p-4 text-gray-900 dark:text-white">
+    <div className="flex w-full flex-row justify-center space-x-4 bg-white p-4 text-gray-900 dark:bg-[#0b1a61] dark:text-white">
       <button type="button" onClick={() => router.push("/")}>
         Home{" "}
         <FontAwesomeIcon
@@ -24,8 +24,8 @@ export default function Navbar() {
           icon={faHouse}
         />
       </button>
-      <button type="button" onClick={() => router.push("/blog")}>
-        Docs{" "}
+      <button type="button" onClick={() => router.push("/posts")}>
+        Posts{" "}
         <FontAwesomeIcon
           className="text-gray-900 dark:text-white"
           icon={faPenNib}

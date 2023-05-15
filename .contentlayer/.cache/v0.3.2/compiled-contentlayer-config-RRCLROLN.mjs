@@ -1,4 +1,4 @@
-// contentlayer.config.js
+// contentlayer.config.ts
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 var Post = defineDocumentType(() => ({
   name: "Post",
@@ -29,4 +29,4 @@ export {
   Post,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-MLQYG4JE.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-RRCLROLN.mjs.map

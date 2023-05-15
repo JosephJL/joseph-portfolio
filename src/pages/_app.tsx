@@ -10,8 +10,10 @@ import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 import { Toaster } from "react-hot-toast";
-
 import { ThemeProvider } from "next-themes";
+
+import Navbar from "~/components/Navbar";
+import RootLayout from "~/components/layouts/RootLayout";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -20,6 +22,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <ThemeProvider attribute="class">
       <SessionProvider session={session}>
+        <Navbar />
         <Component {...pageProps} />
         <Toaster />
       </SessionProvider>

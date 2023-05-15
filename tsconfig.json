@@ -29,8 +29,9 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs",
-    "next.config.js",
-    ".contentlayer/generated"
+    "next.config.mjs",
+    ".contentlayer/generated",
+    "**/*.mdx"
   ],
   "exclude": ["node_modules"]
 }

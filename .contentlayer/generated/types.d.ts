@@ -15,9 +15,15 @@ export type Post = {
   type: 'Post'
   title: string
   description: string
+  tags?: string[] | undefined
+  /** The date the post was published */
+  publishedAt: IsoDateTimeString
+  /** The date the article was last updated */
+  lastUpdatedAt: IsoDateTimeString
   /** MDX file body */
   body: MDX
   slug: string
+  readingTime: json
 }  
 
 /** Nested types */

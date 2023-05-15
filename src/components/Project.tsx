@@ -76,7 +76,7 @@ export default function Project({ project }: ProjectProp) {
                 {title}
               </span>
               {/* <p className="text-sm text-gray-900 dark:text-white">{text}</p> */}
-              <p className="m-1 text-sm text-gray-900 dark:text-white">
+              {/* <p className="m-1 text-sm text-gray-900 dark:text-white">
                 {tags.length
                   ? tags.map((tag, index) => {
                       return (
@@ -89,7 +89,7 @@ export default function Project({ project }: ProjectProp) {
                       );
                     })
                   : ""}
-              </p>
+              </p> */}
             </div>
             <div className="px-2 py-1 dark:hover:bg-black">
               <p className="text-lg	font-semibold text-gray-900 dark:text-white">
