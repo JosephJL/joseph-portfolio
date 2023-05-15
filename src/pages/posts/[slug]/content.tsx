@@ -18,7 +18,8 @@ const Content = (props: ContentProps) => {
     <>
       <article className="leadsing-8 prose w-full max-w-none text-left text-base tracking-tight dark:prose-invert">
         <div className="flex w-52 items-center gap-1 rounded-md py-2 text-sm">
-          Updated {format(parseISO(post.lastUpdatedAt), "MMM dd, yyyy")}
+          {/* Updated {format(parseISO(post.lastUpdatedAt), "MMM dd, yyyy")} */}
+          Updated Today
         </div>
 
         <MDXComponent
