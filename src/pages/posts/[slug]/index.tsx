@@ -6,8 +6,9 @@ import { Article, WithContext } from "schema-dts";
 import { allPosts, type Post } from "contentlayer/generated";
 
 import Header from "./header";
-import Content from "./content";
 import Comment from "./comment";
+import { useMDXComponent } from "next-contentlayer/hooks";
+import MDXComponents from "../../../components/mdx/mdxcomponents";
 
 export const getStaticPaths = () => {
   return {
@@ -48,6 +49,7 @@ const PostsPage = ({
 
   const postFormatted: post = post;
   const readingTime: readingTime = postFormatted.readingTime;
+  const MDXComponent = useMDXComponent(post.body.code);
 
   const { title, description } = post;
   <div></div>;
@@ -72,7 +74,19 @@ const PostsPage = ({
           readingTime={readingTime.text}
           date={post.publishedAt}
         />
-        <Content slug={post.slug} post={post} />
+        {/* <Content slug={post.slug} post={post} /> */}
+        <article className="leadsing-8 prose w-full max-w-none text-left text-base tracking-tight dark:prose-invert">
+          <div className="flex w-52 items-center gap-1 rounded-md py-2 text-sm">
+            {/* Updated {format(parseISO(post.lastUpdatedAt), "MMM dd, yyyy")} */}
+            Updated Today
+          </div>
+
+          <MDXComponent
+            components={{
+              ...MDXComponents,
+            }}
+          />
+        </article>
         <Comment />
       </div>
     </>
