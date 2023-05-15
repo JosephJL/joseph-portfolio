@@ -9,7 +9,6 @@ import { useSession } from "next-auth/react";
 // import CreateTodo from "~/component/CreateTodo";
 import img from "../../public/img/joseph.jpg";
 import Projects from "~/components/Projects";
-import RootLayout from "../components/layouts/RootLayout";
 
 function Home() {
   const { data: sessionData } = useSession();

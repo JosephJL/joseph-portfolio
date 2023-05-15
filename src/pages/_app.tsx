@@ -13,7 +13,6 @@ import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "next-themes";
 
 import Navbar from "~/components/Navbar";
-import RootLayout from "~/components/layouts/RootLayout";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,

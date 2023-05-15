@@ -73,8 +73,8 @@ export default function PostListPage() {
               Documenting bits and bobs of my experience
             </p>
             <p className="font-light text-gray-500 dark:text-gray-400 sm:text-sm">
-              I've included tags for each of my bobs to help you navigate the
-              pieces
+              I&apos;ve included tags for each of my bobs to help you navigate
+              the pieces
             </p>
             <div className="mt-4 grid justify-items-start rounded-lg border border-gray-200 bg-white p-2 shadow-md dark:border-gray-700 dark:bg-gray-800 ">
               <p>

@@ -1,11 +1,11 @@
-import { WithChildren } from "@/types";
+// import { WithChildren } from "@/types";
 
-type KbdProps = WithChildren;
+// type KbdProps = WithChildren;
 
-const Kbd = (props: KbdProps) => {
-  const { children } = props;
+// const Kbd = (props: KbdProps) => {
+//   const { children } = props;
 
-  return <kbd className="text-shade-2">{children}</kbd>;
-};
+//   return <kbd className="text-shade-2">{children}</kbd>;
+// };
 
-export default Kbd;
+// export default Kbd;

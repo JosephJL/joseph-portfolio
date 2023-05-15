@@ -17,7 +17,7 @@ type ProjectProp = {
 };
 
 export default function Project({ project }: ProjectProp) {
-  const { id, title, text, img, github, date, techs, tags } = project;
+  const { id, title, text, img, github, date, techs } = project;
 
   return (
     <>
