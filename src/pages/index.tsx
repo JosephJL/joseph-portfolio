@@ -36,7 +36,7 @@ function Home() {
               <span className="hover:text-xl">experimentation</span> and{" "}
               <span className="hover:text-xl">iteration</span> come to life in
               the projects that I work on. Curious and interested in the wide
-              variety of applciations technology can have on business process
+              variety of applications technology can have on business processes
               today. Strong passion for giving back to the community.
             </p>
           </div>
