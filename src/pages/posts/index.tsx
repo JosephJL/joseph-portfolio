@@ -6,8 +6,8 @@ function ArticleCard(post: Post) {
   const { slug, title, tags, description } = post;
   return (
     <div key={slug}>
-      <article className="rounded-lg border border-gray-200 bg-white p-6 shadow-md dark:border-gray-700 dark:bg-gray-800">
-        <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <article className="rounded-lg border border-gray-200 bg-white p-6 shadow-md hover:bg-transparent dark:border-gray-700 dark:bg-gray-800">
+        <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 hover:text-blue-200 dark:text-white hover:dark:text-gray-400">
           <a href={`posts/${slug}`}>{title}</a>
         </h2>
         <p className="m-1 text-sm text-gray-900 dark:text-white">
@@ -38,7 +38,7 @@ function ArticleCard(post: Post) {
           </div>
           <Link
             href={`posts/${slug}`}
-            className="text-primary-600 dark:text-primary-500 inline-flex items-center font-medium hover:underline"
+            className="text-primary-600 dark:text-primary-500 inline-flex items-center font-medium hover:text-blue-200 hover:underline hover:dark:text-gray-400"
           >
             Read more
             <svg
