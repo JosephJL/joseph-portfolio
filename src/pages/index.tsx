@@ -9,6 +9,7 @@ import { useSession } from "next-auth/react";
 // import CreateTodo from "~/component/CreateTodo";
 import img from "../../public/img/joseph.jpg";
 import Projects from "~/components/Projects";
+import ContactForm from "~/components/ContactForm";
 
 function Home() {
   const { data: sessionData } = useSession();
@@ -22,7 +23,7 @@ function Home() {
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-white dark:bg-[#001440]">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-4 lg:px-64 lg:py-16">
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center">
             <h3 className="animate-typing overflow-hidden whitespace-nowrap font-mono text-xl font-bold text-gray-900 dark:text-white">
               Hi, I&apos;m Joseph.
             </h3>
@@ -49,6 +50,7 @@ function Home() {
             </div>
           </div>
           <Projects />
+          <ContactForm />
         </div>
       </main>
     </>
