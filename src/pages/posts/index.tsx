@@ -62,7 +62,7 @@ function ArticleCard(post: Post) {
 
 export default function PostListPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-white dark:bg-[#0b1a61]">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-white dark:bg-[#001440]">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-4 lg:px-64 lg:py-8">
         <div className="mx-auto max-w-screen-xl py-2 lg:px-6">
           <div className="mx-auto mb-8 max-w-screen-sm text-center lg:mb-16">

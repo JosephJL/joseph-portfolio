@@ -1,0 +1,47 @@
+---
+title: "Building a Form Management System"
+description: "Spring Security JWT Token Authentication, Vue Pinia Store, ChartJs"
+publishedAt: "2023-5-14"
+lastUpdatedAt: "2023-5-14"
+tags:
+  - Resource
+---
+
+## Introduction
+
+This was the project I worked on as part of Object Oriented Programming ( IS 442 ) in my second year of university studying Information Systems at Singapore Management University. The aim of this post is to highlight my thought process and approach to building my first springboot application. It was also my first project working on backend development!
+
+I would like to preface that I am going to touch on a few different areas of this project, if you’re looking for just how to build REST APIs with springboot jump to here.
+
+Edit: While writing this I felt spread thin into areas like CI/CD where I dockerized the springboot application, MongoDB.
+
+## Business problem
+
+There is a lack of a centralised platform for form management processes. This is how the life cycle of a Vendor Onboarding form might look like.
+
+Vendor fills out form → sends email to company admin → company admin reviews form → company admin sends email back to Vendor for revision →
+
+Forms have to be sent manually via email, and with multiple revisions at different levels it can take an unnecessarily long period of time to get a form filled correctly with the necessary information.
+
+## Why Springboot
+
+I liked [this explanation](https://www.youtube.com/watch?v=99Nw2smMTLg&list=PLqq-6Pq4lTTbx8p2oCgcAQGQyqN8XeA1x&index=3) of Springboot by Javabrains on youtube
+“Springboot makes it easy to create stand-alone, production grade Spring based Applications that you can just run”
+
+Essentially, Springboot is a bootstrapped version of Spring, providing you with all the functionality of Spring Application with ease of development.
+
+[This video](https://www.youtube.com/watch?v=YXlSkWq04jk&list=PLqq-6Pq4lTTbx8p2oCgcAQGQyqN8XeA1x&index=4) explains why Springboot is necessary , why Spring standalone would be much more time consuming.
+
+[https://www.youtube.com/watch?v=YXlSkWq04jk&list=PLqq-6Pq4lTTbx8p2oCgcAQGQyqN8XeA1x&index=4](https://www.youtube.com/watch?v=YXlSkWq04jk&list=PLqq-6Pq4lTTbx8p2oCgcAQGQyqN8XeA1x&index=4)
+
+## Why MongoDB, relevance to form details, justification
+
+One of the use cases for this project was “creating of forms by admin”. My team chose MongoDB as we felt like noSQL was a more flexible option to store the data of each form. I’ll cover more about whether this worked out to be true in the reflection.
+
+## Security (Brief summary)
+
+Setting up JWT Token Auth with Spring Security
+
+( credits to Bezkoder ). I largely set up the JWT token auth with reference to this 3 part series on “Springboot Auth with JWT Token”
+
+Note that some of the packages that he uses in the tutorial were deprecated, I will not go into detail on how I implemented it in this post but do let me know if you guys want to see how I implemented JWT Token Auth for this project.

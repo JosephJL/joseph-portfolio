@@ -20,7 +20,7 @@ function Home() {
         <meta name="description" content="Joseph Portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-white dark:bg-[#0b1a61]">
+      <main className="flex min-h-screen flex-col items-center justify-center bg-white dark:bg-[#001440]">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-4 lg:px-64 lg:py-16">
           <div className="flex flex-col items-center justify-center">
             <h3 className="animate-typing overflow-hidden whitespace-nowrap font-mono text-xl font-bold text-gray-900 dark:text-white">
@@ -42,7 +42,7 @@ function Home() {
           </div>
           <div className="flex w-full items-center justify-start justify-center text-left text-center">
             <hr className="my-8 h-1 w-full rounded border-0 bg-gray-900 dark:bg-gray-200"></hr>
-            <div className="absolute left-1/2 -translate-x-1/2 bg-white px-4 dark:bg-[#0b1a61]">
+            <div className="absolute left-1/2 -translate-x-1/2 bg-white px-4 dark:bg-[#001440]">
               <p className="text-xl font-bold text-gray-900 dark:text-white">
                 Projects I&apos;ve worked on
               </p>

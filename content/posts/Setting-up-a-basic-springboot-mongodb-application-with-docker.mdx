@@ -1,0 +1,101 @@
+---
+title: "Setting up a basic Spring Boot MongoDB application"
+description: "Aggregation of the resources used and the steps I took to set up my Spring Boot MongoDB application"
+publishedAt: "2023-5-14"
+lastUpdatedAt: "2023-5-14"
+tags:
+  - Resource
+---
+
+## Introduction
+
+Through the process of building a form management system with Spring Boot and MongoDB, I found that there were many different approaches to setting up your own Spring Boot project. From choosing your IDE to setting up your database I found myself going through many different sources to find out how to piece everything together.
+
+The repo for that project is a little big (Actually I just haven't really configured the security properly), so I wanted to use a separate sample project to show how I set up my Spring Boot + MongoDB project. The idea is that through this post you would have access to all you need to know to have a working setup with Spring Boot, and can then focus more of your time on design your REST endpoints + tackling your business needs rather than figuring out how to start.
+
+Do note that I am not an expert in Spring Boot, and this is merely a aggregation of resources and the steps I took to set up my Spring Boot + MongoDB project.
+
+## Setting up Spring Boot
+
+I mainly used vscode for my projects , so in this case I did the setup using Vscode’s Spring Boot Extension ([link here](https://code.visualstudio.com/docs/java/java-spring-boot)) . One of the extensions allows you to use Spring Initializr to setup your project in vscode which I found convenient to use.
+
+![](/img/springboot-mongodb/vscode.png)
+
+Using the shortcut (Cmd + Shift + P ) for Mac and (Ctrl + Shift + P) for Windows , select “Spring Initializr: Create a Maven Project” and configure according to the version of Java you have on your machine as well as the dependencies you’ll need. For this example this is the configuration I’ll be using
+
+Spring Boot Version : 3.0.6
+Project Language : Java
+GroupId : com.example
+ArtifactId : demo
+Packaging type : Jar
+Java version : 17
+Dependencies : Spring Web, Spring Data MongoDB
+
+You’ll need to install maven to run your Spring Boot project
+Theres extensive documentation on how to do so by both [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html) and [Apache Maven](https://maven.apache.org/download.cgi)
+
+Theres also a guide by [Baeldung on installing Maven](https://www.baeldung.com/install-maven-on-windows-linux-mac)
+
+After installing Maven we’ll load the dependencies for your project
+
+```sh title="bash"
+$ mvn install
+```
+
+Then to test and see if Spring Boot is running succesfully we’ll run
+
+```sh title="bash"
+$ mvn spring-boot:run
+```
+
+Open up [localhost:8080](http://localhost:8080) and you should see the following
+
+![](/img/springboot-mongodb/springbootDefaultPage.png)
+
+This means that the development server is up and running
+
+## Deciding what File Structure to use
+
+Two approaches
+
+1. organise folders by function
+2. organise by layer
+
+You can find out more about folder structures for Spring Boot [here](https://www.javaguides.net/2019/01/standard-project-structure-for-spring-boot-projects.html)
+
+For this project we went with the first approach, I felt that it was much clearer to have all the function related files in the same folder.
+
+## Setting up MongoDB with Docker
+
+We’ll be using the [official docker image for mongo](https://hub.docker.com/_/mongo)
+
+To start the mongoDB instance
+
+```sh title="bash"
+$ docker run -d -p 27017:27017 --name demo-mongo mongo:latest
+```
+
+[https://earthly.dev/blog/mongodb-docker/](https://earthly.dev/blog/mongodb-docker/)
+
+I used [MongoDB Compass](https://www.mongodb.com/try/download/compass) to view the data in the MongoDB container.
+
+## Connecting Spring Boot to MongoDB Docker Container
+
+```sh title="bash"
+$ docker run -d -p 27017:27017 --name test-mongo mongo:latest
+```
+
+Since the docker port was configured to 27017, this means that Spring Boot can cannect to your MongoDB instance through this port.
+
+We [configure the database connection](https://www.baeldung.com/spring-data-mongodb-connection) in the application.properties folder under src/main/resources
+
+```sh title="bash"
+spring.data.mongodb.database=smartform_db
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+```
+
+Now when you run the Spring Boot application, you should see something like this
+![](/img/springboot-mongodb/springbootMongoConnection.png)
+
+Thats it! You can start building your API Routes with a working environment. I'll go through how I built some of the system functions in another post.

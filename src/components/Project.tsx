@@ -30,9 +30,9 @@ export default function Project({ project }: ProjectProp) {
           }`}
         >
           <div className="relative flex w-full flex-col items-center justify-center">
-            <div className="bg-white p-2 hover:bg-transparent dark:bg-[#0b1a61]">
+            <div className="rounded bg-white p-2 hover:bg-transparent dark:bg-[#001440]">
               <Image
-                className="opacity-60 hover:opacity-80"
+                className="rounded-md opacity-60 hover:opacity-80	"
                 alt="Project Image Here"
                 src={img}
                 width={0}

@@ -68,7 +68,7 @@ const PostsPage = ({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* Main Content */}
-      <div className="flex min-h-screen flex-col justify-items-start bg-white px-4 dark:bg-[#0b1a61] md:px-16 lg:px-64 ">
+      <div className="flex min-h-screen flex-col justify-items-start bg-white px-4 dark:bg-[#001440] md:px-16 lg:px-64 ">
         <Header
           title={post.title}
           readingTime={readingTime.text}
