@@ -18,6 +18,7 @@ export const projectRouter = createTRPCRouter({
         tags: ["Personal", "Noob"],
         article: false,
         website: "",
+        demo: "",
       },
       {
         id: "2",
@@ -32,6 +33,7 @@ export const projectRouter = createTRPCRouter({
         tags: ["SMU", "WAD2 Module"],
         article: false,
         website: "https://frontend-eta-coral.vercel.app/",
+        demo: "https://www.youtube.com/watch?v=iSoCRHekWtc",
       },
       {
         id: "3",
@@ -49,6 +51,7 @@ export const projectRouter = createTRPCRouter({
         tags: ["SMU", "ESD Module"],
         article: false,
         website: "",
+        demo: "https://www.youtube.com/watch?v=mXnO4Y1JEVU",
       },
       {
         id: "4",
@@ -66,6 +69,7 @@ export const projectRouter = createTRPCRouter({
         tags: ["SMU", "OOP Module"],
         article: false,
         website: "",
+        demo: "https://www.youtube.com/watch?v=S4vLItXFAvE",
       },
     ];
   }),

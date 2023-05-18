@@ -18,7 +18,7 @@ type ProjectProp = {
 };
 
 export default function Project({ project }: ProjectProp) {
-  const { id, title, text, backtext, img, github, date, techs, website } =
+  const { id, title, text, backtext, img, github, date, techs, website, demo } =
     project;
 
   return (
@@ -73,6 +73,16 @@ export default function Project({ project }: ProjectProp) {
                   href={website}
                 >
                   Website
+                </Button>
+              ) : (
+                ""
+              )}
+              {demo.length ? (
+                <Button
+                  className="mx-2 mt-2 text-white active:bg-blue-800 dark:bg-gray-700 dark:bg-white dark:text-gray-900"
+                  href={demo}
+                >
+                  Demo
                 </Button>
               ) : (
                 ""
