@@ -10,6 +10,7 @@ import { useSession } from "next-auth/react";
 import img from "../../public/img/joseph.jpg";
 import Projects from "~/components/Projects";
 import ContactForm from "~/components/ContactForm";
+import { Button } from "flowbite-react";
 
 function Home() {
   const { data: sessionData } = useSession();
@@ -49,6 +50,12 @@ function Home() {
               on business processes today. Strong passion for giving back to the
               community.
             </p>
+            <Button
+              className="mx-2 mt-2 text-white active:bg-blue-800 dark:bg-gray-700 dark:bg-white dark:text-gray-900"
+              href="/Joseph_Hee_Resume.pdf"
+            >
+              Resume
+            </Button>
           </div>
           <div className="flex w-full items-center justify-start justify-center text-left text-center">
             <hr className="my-8 h-1 w-full rounded border-0 bg-gray-900 dark:bg-gray-200"></hr>
