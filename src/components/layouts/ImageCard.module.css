@@ -1,0 +1,88 @@
+.main :global(.flip) {
+  perspective: 1000px;
+}
+
+.main :global(.card) {
+  /* Sizing */
+  height: 100%;
+  width: 100%;
+
+  transform-style: preserve-3d;
+
+  /* Content Alignment */
+  position: relative;
+
+  /* Positioning */
+  display: grid;
+
+  /* Styling */
+  user-select: none;
+  cursor: pointer;
+}
+
+.main :global(.card-front),
+.main :global(.card-back) {
+  /* Sizing */
+  height: 100%;
+  width: 100%;
+
+  /* Postioning */
+  grid-row: 1/2;
+  grid-column: 1/2;
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  /* Alignment */
+  position: relative;
+
+  /* Content Alignment */
+  display: flex;
+  align-items: center;
+
+  /* Content Styling */
+}
+
+.main :global(.card-back) {
+  transform: rotateY(180deg);
+}
+
+/*
+
+Exit Transition
+showFront = true -> false
+front -> back
+
+Enter Transition
+showFront = false -> true
+back -> front
+
+*/
+
+.main :global(.flip-exit) {
+  transform: rotateY(0deg);
+}
+
+.main :global(.flip-exit-active) {
+  transform: rotateY(180deg);
+  transition: transform 300ms;
+  transition-timing-function: cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+.main :global(.flip-exit-done) {
+  transform: rotateY(180deg);
+}
+
+.main :global(.flip-enter) {
+  transform: rotateY(180deg);
+}
+
+.main :global(.flip-enter-active) {
+  transform: rotateY(0deg);
+  transition: transform 400ms;
+  transition-timing-function: cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+.main :global(.flip-enter-done) {
+  transform: rotateY(0deg);
+}

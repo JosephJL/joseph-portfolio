@@ -11,13 +11,15 @@ import {
   faBullseye,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import FlippableImage from "./FlippableImage";
 
 type ProjectProp = {
   project: Project;
 };
 
 export default function Project({ project }: ProjectProp) {
-  const { id, title, text, img, github, date, techs } = project;
+  const { id, title, text, backtext, img, github, date, techs, website } =
+    project;
 
   return (
     <>
@@ -31,18 +33,15 @@ export default function Project({ project }: ProjectProp) {
         >
           <div className="relative flex w-full flex-col items-center justify-center">
             <div className="rounded bg-white p-2 hover:bg-transparent dark:bg-[#001440]">
-              <Image
+              <FlippableImage
+                title={title}
                 className="duration-400 rounded-md opacity-60	transition-all hover:opacity-80"
                 alt="Project Image Here"
                 src={img}
                 width={0}
                 height={0}
                 sizes="100vw"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "cover",
-                }}
+                backtext={backtext}
               />
             </div>
             <div className="flex flex-row">
@@ -68,6 +67,16 @@ export default function Project({ project }: ProjectProp) {
                     );
                   })
                 : "Repo Coming soon"}
+              {website.length ? (
+                <Button
+                  className="mx-2 mt-2 text-white active:bg-blue-800 dark:bg-gray-700 dark:bg-white dark:text-gray-900"
+                  href={website}
+                >
+                  Website
+                </Button>
+              ) : (
+                ""
+              )}
             </div>
           </div>
           <div className="w-full p-4">
