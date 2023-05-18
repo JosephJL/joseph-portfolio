@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import React, { useRef, useState } from "react";
+import React, { MutableRefObject, useRef, useState } from "react";
 import { validate } from "../utils/validate";
 
 interface IValues {
@@ -8,10 +8,10 @@ interface IValues {
   message: string;
 }
 
-interface IErrors extends Partial<IValues> {}
+export type IErrors = Partial<IValues>;
 
 export default function ContactForm() {
-  const form = useRef<any>();
+  const form = useRef() as MutableRefObject<HTMLFormElement>;
   const [success, setSuccess] = useState(false);
   const [values, setValues] = useState<IValues>({
     name: "",
@@ -21,7 +21,7 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<IErrors>({});
   const [loading, setLoading] = useState(false);
 
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const errors = validate(values);
     if (errors && Object.keys(errors).length > 0) {
@@ -30,7 +30,7 @@ export default function ContactForm() {
     setErrors({});
     setLoading(true);
 
-    emailjs
+    await emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
@@ -77,7 +77,7 @@ export default function ContactForm() {
             <div className="flex-row">
               <div className="[ margin-auto ] [ flow ]">
                 <h1>Message sent!</h1>
-                <p>I've got your message and will reply you soon!</p>
+                <p>I&apos;ve got your message and will reply you soon!</p>
               </div>
             </div>
           ) : (
