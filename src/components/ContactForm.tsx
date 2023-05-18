@@ -73,6 +73,9 @@ export default function ContactForm() {
           </p>
         </div>
         <div>
+          {errors.name ? <p>{errors.name}</p> : ""}
+          {errors.email ? <p>{errors.email}</p> : ""}
+          {errors.message ? <p>{errors.message}</p> : ""}
           {success ? (
             <div className="flex-row">
               <div className="[ margin-auto ] [ flow ]">
