@@ -32,7 +32,7 @@ export default function Project({ project }: ProjectProp) {
           <div className="relative flex w-full flex-col items-center justify-center">
             <div className="rounded bg-white p-2 hover:bg-transparent dark:bg-[#001440]">
               <Image
-                className="rounded-md opacity-60 hover:opacity-80	"
+                className="duration-400 rounded-md opacity-60	transition-all hover:opacity-80"
                 alt="Project Image Here"
                 src={img}
                 width={0}
@@ -51,7 +51,7 @@ export default function Project({ project }: ProjectProp) {
                     return (
                       <Button
                         key={index}
-                        className="mx-2 mt-2 bg-black text-white dark:bg-white dark:text-gray-900"
+                        className="mx-2 mt-2 text-white active:bg-blue-800 dark:bg-gray-700 dark:bg-white dark:text-gray-900"
                         href={link}
                       >
                         {index > 0 && github.length > 1

@@ -32,13 +32,22 @@ function Home() {
               src={img.src}
               alt="Joseph Image Here"
             />
-            <p className="m-4 w-full text-center text-gray-900 dark:text-white sm:mx-24 sm:mt-12">
+            <p className="m-4 w-full text-center text-gray-900 dark:text-white sm:mx-24 sm:mt-12 ">
               I enjoy seeing the products of{" "}
-              <span className="hover:text-xl">experimentation</span> and{" "}
-              <span className="hover:text-xl">iteration</span> come to life in
-              the projects that I work on. Curious and interested in the wide
-              variety of applications technology can have on business processes
-              today. Strong passion for giving back to the community.
+              <span
+                className="duration-400
+               transition-all hover:text-xl hover:font-semibold hover:text-orange-400 dark:hover:text-yellow-200"
+              >
+                experimentation
+              </span>{" "}
+              and{" "}
+              <span className="duration-400 transition-all hover:text-xl hover:font-semibold  hover:text-orange-400 dark:hover:text-yellow-200">
+                iteration
+              </span>{" "}
+              come to life in the projects that I work on. Curious and
+              interested in the wide variety of applications technology can have
+              on business processes today. Strong passion for giving back to the
+              community.
             </p>
           </div>
           <div className="flex w-full items-center justify-start justify-center text-left text-center">

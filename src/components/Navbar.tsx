@@ -18,31 +18,31 @@ export default function Navbar() {
 
   return (
     <div className="sticky top-0 z-10 flex w-full flex-row justify-center space-x-4 bg-white p-4 text-gray-900 dark:bg-[#001440] dark:text-white">
-      <Tooltip content="Home" trigger="hover">
-        <button type="button" onClick={() => router.push("/")}>
-          {/* Home{" "} */}
+      <button type="button" onClick={() => router.push("/")}>
+        {/* Home{" "} */}
+        <Tooltip content="Home" trigger="hover">
           <FontAwesomeIcon
             className="text-gray-900 hover:text-blue-200 dark:text-white hover:dark:text-gray-400"
             icon={faHouse}
           />
-        </button>
-      </Tooltip>
-      <Tooltip content="Posts" trigger="hover">
-        <button type="button" onClick={() => router.push("/posts")}>
-          {/* Posts{" "} */}
+        </Tooltip>
+      </button>
+
+      <button type="button" onClick={() => router.push("/posts")}>
+        {/* Posts{" "} */}
+        <Tooltip content="Posts" trigger="hover">
           <FontAwesomeIcon
             className="text-gray-900 hover:text-blue-200 dark:text-white hover:dark:text-gray-400"
             icon={faPenNib}
           />
-        </button>
-      </Tooltip>
-      <Tooltip content="Mode" trigger="hover">
-        <button
-          onClick={() =>
-            theme == "dark" ? setTheme("light") : setTheme("dark")
-          }
-          className="dark:text-whites text-white transition-all duration-100"
-        >
+        </Tooltip>
+      </button>
+
+      <button
+        onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
+        className="dark:text-whites text-white transition-all duration-100"
+      >
+        <Tooltip content="Mode" trigger="hover">
           {/* <span className="text-gray-900 dark:text-white">Mode </span> */}
           {theme == "dark" ? (
             <FontAwesomeIcon
@@ -55,8 +55,8 @@ export default function Navbar() {
               icon={faMoon}
             />
           )}
-        </button>
-      </Tooltip>
+        </Tooltip>
+      </button>
     </div>
   );
 }
