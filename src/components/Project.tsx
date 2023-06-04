@@ -35,12 +35,12 @@ export default function Project({ project }: ProjectProp) {
             <div className="rounded bg-white p-2 hover:bg-transparent dark:bg-[#001440]">
               <FlippableImage
                 title={title}
-                className="duration-400 rounded-md opacity-60	transition-all hover:opacity-80"
+                className="duration-400 rounded-md opacity-60 transition-all hover:opacity-80"
                 alt="Project Image Here"
                 src={img}
                 width={0}
                 height={0}
-                sizes="100vw"
+                sizes="100vh"
                 backtext={backtext}
               />
             </div>

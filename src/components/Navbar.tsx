@@ -7,6 +7,7 @@ import {
   faSun,
   faMoon,
 } from "@fortawesome/free-solid-svg-icons";
+
 import { useTheme } from "next-themes";
 import { Tooltip } from "flowbite-react";
 
@@ -22,7 +23,11 @@ export default function Navbar() {
         {/* Home{" "} */}
         <Tooltip content="Home" trigger="hover">
           <FontAwesomeIcon
-            className="text-gray-900 hover:text-blue-200 dark:text-white hover:dark:text-gray-400"
+            className={
+              router.pathname == "/"
+                ? "text-blue-600 dark:text-yellow-300"
+                : "text-gray-900 hover:text-blue-200 dark:text-white hover:dark:text-gray-400"
+            }
             icon={faHouse}
           />
         </Tooltip>
@@ -32,7 +37,11 @@ export default function Navbar() {
         {/* Posts{" "} */}
         <Tooltip content="Posts" trigger="hover">
           <FontAwesomeIcon
-            className="text-gray-900 hover:text-blue-200 dark:text-white hover:dark:text-gray-400"
+            className={
+              router.pathname == "/posts" || router.pathname == "/posts/[slug]"
+                ? "text-blue-600 dark:text-yellow-300"
+                : "text-gray-900 hover:text-blue-200 dark:text-white hover:dark:text-gray-400"
+            }
             icon={faPenNib}
           />
         </Tooltip>

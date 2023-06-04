@@ -31,7 +31,8 @@
     "**/*.mjs",
     "next.config.mjs",
     ".contentlayer/generated",
-    "**/*.mdx"
+    "**/*.mdx",
+    "src/components/Avatar.tsx"
   ],
   "exclude": ["node_modules"]
 }

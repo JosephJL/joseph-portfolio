@@ -12,6 +12,12 @@ import Projects from "~/components/Projects";
 import ContactForm from "~/components/ContactForm";
 import { Button } from "flowbite-react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faFile } from "@fortawesome/free-solid-svg-icons";
+
+import { Tooltip } from "flowbite-react";
+
 function Home() {
   const { data: sessionData } = useSession();
   console.log(sessionData);
@@ -50,12 +56,29 @@ function Home() {
               on business processes today. Strong passion for giving back to the
               community.
             </p>
-            <Button
-              className="mx-2 mt-2 text-white active:bg-blue-800 dark:bg-gray-700 dark:bg-white dark:text-gray-900"
-              href="/Joseph_Hee_Resume.pdf"
-            >
-              Resume
-            </Button>
+            <div className="flex">
+              <Tooltip content="Resume" trigger="hover">
+                <Button
+                  className="mx-2 mt-2 text-white active:bg-blue-800 dark:bg-gray-700 dark:bg-white dark:text-gray-900"
+                  href="/Joseph_Hee_Resume.pdf"
+                >
+                  <FontAwesomeIcon className="mx-1" icon={faFile} size="2xl" />
+                </Button>
+              </Tooltip>
+              <Tooltip content="LinkedIn" trigger="hover">
+                <Button
+                  className="mx-2 mt-2 text-white active:bg-blue-800 dark:bg-gray-700 dark:bg-white dark:text-gray-900"
+                  href="https://www.linkedin.com/in/josephheejl"
+                >
+                  <FontAwesomeIcon
+                    className="mx-1"
+                    icon={faLinkedin}
+                    size="2xl"
+                  />
+                </Button>
+              </Tooltip>
+              {/* <p>Hello there,this is the path {router.pathname}</p> */}
+            </div>
           </div>
           <div className="flex w-full items-center justify-start justify-center text-left text-center">
             <hr className="my-8 h-1 w-full rounded border-0 bg-gray-900 dark:bg-gray-200"></hr>
