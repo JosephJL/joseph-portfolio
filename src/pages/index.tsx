@@ -89,6 +89,46 @@ function Home() {
             </div>
           </div>
           <Projects />
+          <div className="flex w-full items-center justify-start justify-center text-left text-center">
+            <hr className="my-8 h-1 w-full rounded border-0 bg-gray-900 dark:bg-gray-200"></hr>
+            <div className="absolute left-1/2 -translate-x-1/2 bg-white px-4 dark:bg-[#001440]">
+              <p className="text-xl font-bold text-gray-900 dark:text-white">
+                Where I'm Running
+              </p>
+            </div>
+          </div>
+          <div className="flex w-full items-center justify-start justify-center text-left text-center">
+            <div className="flex min-h-full w-full flex-wrap items-center justify-center p-4">
+              <div className="px-2 py-1">
+                <iframe
+                  height="454"
+                  width="300"
+                  frameBorder="0"
+                  allowTransparency={true}
+                  scrolling="no"
+                  src="https://www.strava.com/athletes/50923860/latest-rides/db1d389c53920b9e2ac9c4954d8a14b05aa15e56"
+                ></iframe>
+              </div>
+              <div className="px-6 py-3">
+                <p className="text-lg	font-semibold text-gray-900 dark:text-white">
+                  Why is there a running log here?
+                </p>
+                <p className="text-left">I like running.</p>
+                <p className="text-left">Running clears the head.</p>
+                <p className="text-left">
+                  Escaping sedentary lifestyle is good.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex w-full items-center justify-start justify-center text-left text-center">
+            <hr className="my-8 h-1 w-full rounded border-0 bg-gray-900 dark:bg-gray-200"></hr>
+            <div className="absolute left-1/2 -translate-x-1/2 bg-white px-4 dark:bg-[#001440]">
+              <p className="text-xl font-bold text-gray-900 dark:text-white">
+                Contact Me
+              </p>
+            </div>
+          </div>
           <ContactForm />
         </div>
       </main>

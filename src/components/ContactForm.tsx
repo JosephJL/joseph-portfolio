@@ -67,9 +67,10 @@ export default function ContactForm() {
             Get In Touch
           </p>
           <p className="test-xs">
-            I&apos;m currently looking for internship opportunities in software
-            development, I would be keen to have a chat to see if I&apos;m a
-            good fit!{" "}
+            Do reach out to me if you have any thoughts on the website or if
+            you&apos;d like to go for a run together. I&apos;m currently looking
+            for internship opportunities in software development and would be
+            keen to hop on a call to chat more!{" "}
           </p>
         </div>
         <div>
