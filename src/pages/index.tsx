@@ -93,7 +93,7 @@ function Home() {
             <hr className="my-8 h-1 w-full rounded border-0 bg-gray-900 dark:bg-gray-200"></hr>
             <div className="absolute left-1/2 -translate-x-1/2 bg-white px-4 dark:bg-[#001440]">
               <p className="text-xl font-bold text-gray-900 dark:text-white">
-                Where I'm Running
+                Where I&apos;m Running
               </p>
             </div>
           </div>
