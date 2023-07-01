@@ -103,9 +103,6 @@ function Home() {
                 <iframe
                   height="454"
                   width="300"
-                  frameBorder="0"
-                  allowTransparency={true}
-                  scrolling="no"
                   src="https://www.strava.com/athletes/50923860/latest-rides/db1d389c53920b9e2ac9c4954d8a14b05aa15e56"
                 ></iframe>
               </div>
