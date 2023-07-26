@@ -1,0 +1,108 @@
+---
+title: "Setting up Rabbitmq on Kubernetes running on Docker Desktop"
+description: "The issues I've faced setting up RabbitMQ on Kubernetes using Docker Desktop, covering the basics of setting up a RabbitMQ cluster as well as how to delete a cluster cleanly"
+publishedAt: "2023-7-14"
+lastUpdatedAt: "2023-7-14"
+tags:
+  - Resource
+---
+
+## Context
+
+For this project I was tasked with maintaining and improving the current RabbitMQ infrastructure which was running on a kubernetes cluster. While setting up the RabbitMQ cluster on kubernetes running on Docker Desktop, it was difficult to find information on managing pods / deleting resources cleanly. I can across while setting up a [RabbitMQ Cluster Kubernetes Operator](https://www.rabbitmq.com/kubernetes/operator/operator-overview.html).
+
+## Required resources
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) with Kubernetes enabled
+- [kubectl](https://kubernetes.io/docs/tasks/tools/)
+- [kind](https://kind.sigs.k8s.io/docs/user/quick-start/) (lets you run kubernetes on your local computer \*requires Docker or Podman)
+
+## Create a Namespace
+
+Namespaces are a way to manage your resources, there is a great video on that [here](https://www.youtube.com/watch?v=K3jNo4z5Jx8), basically namespaces help organise the clusters you are running on kubernetes. It makes it easier when you want to delete a cluster cleanly, without a namespace all your resources would be in the default namespace which can get messy.
+
+To create a namespace for your rabbitmq cluster
+
+```sh title="bash"
+$ kubectl create namespace rabbitmq-cluster
+```
+
+## Create RabbitmqCluster operator using a Custom Resource Definition (CRDs)
+
+You can find more information on Custom Resources [here](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#:~:text=A%20resource%20is%20an%20endpoint,in%20a%20default%20Kubernetes%20installation.)
+
+```sh title="bash"
+$ kubectl apply -f https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml
+```
+
+To check if your CRDs are created run
+
+```sh title="bash"
+$ kubectl get crd
+```
+
+You should see the name of the resource as well as the date it was created.
+
+## Creating a manifest
+
+Manifests are your .yaml files, that configure your kubernetes cluster. You can reference [this article](https://medium.com/nerd-for-tech/deploying-rabbitmq-on-kubernetes-using-rabbitmq-cluster-operator-ef99f7a4e417) by Pavan Kumar on how manifests are "applied" to your cluster.
+
+I will not go into the details of the manifest here because I think the article does a good job, but when you're manifest file is set up you'll run the command below to apply it to the kubernetes cluster.
+
+```sh title="bash"
+$ kubectl apply -f rabbitmqcluster.yaml
+```
+
+## Deleting resources
+
+Here is where creating a custom namespace benefits you.
+
+To remove all the resources in a namespace
+
+```sh title="bash"
+$ kubectl delete namespace rabbitmq-cluster
+```
+
+### Finalizers
+
+One of the issues I faced was even after running the delete script, the namespace was still there. This is due to finalizers that are present in the custom resource that was applied to the cluster. To view the resource to see if it contains any finalizers
+
+```sh title="bash"
+kubectl describe rabbitmqcluster.rabbitmq.com rabbitmqcluster-main -n rabbitmq-cluster
+```
+
+**rabbitmqcluster.rabbitmq.com** - refers to the Custom Resource Definition (CRD)
+group that the RabbitmqCluster resource belongs to. It is specified as part of the
+resource's API version in the format group/version
+
+**rabbitmqcluster-main** - name of the specific RabbitmqCluster resource you want to describe. It is the name of an instance of the CRD that you want to inspect or get detailed information about.
+
+**-n** - flag that stands for namespace. It is used to specify the namespace in which the resource exists. In this case, rabbitmq-cluster is the namespace where the RabbitmqCluster resource is located.
+
+**rabbitmq-cluster** - name of the Kubernetes namespace. Namespaces are a way to divide cluster resources into virtual clusters. Resources with the same name can exist in different namespaces without conflict.
+
+I used chatgpt to get these definitions, however you can refer to the [kubernetes cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet) under the section _"Viewing and finding resources"_ to learn more about kubectl commands.
+
+Now when you run the command, you can spot the finalizer under the "Managed Fields" section
+![](/img/rabbitmq-kubernetes/finalizer.png)
+
+### Removing Finalizers from resource
+
+To remove the finalizer you'll use the edit command in kubectl
+
+```sh title="bash"
+kubectl edit rabbitmqcluster rabbitmqcluster-main -n rabbitmq-cluster
+```
+
+In my case this opens the resource manifest in Vim, to edit the manifest
+Press **i** to edit the manifest in Insert mode
+When you're finished editing the manifest exit the Insert mode with **esc**
+Finally update the manifest by typing **:qa** and **enter**
+
+Thats it! If you try running the delete namespace command again it should be deleted successfully!
+
+```sh title="bash"
+$ kubectl delete namespace rabbitmq-cluster
+```
+
+Do let me know if theres any concepts that I've misunderstood or how I could improve on the quality of this post. You can reach out to me in the contact section on the main page 😁
