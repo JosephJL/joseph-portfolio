@@ -7,18 +7,20 @@ import { useSession } from "next-auth/react";
 // import { api } from "~/utils/api";
 // import Todos from "~/component/Todos";
 // import CreateTodo from "~/component/CreateTodo";
-import img from "../../public/img/joseph.jpg";
-import Projects from "~/components/Projects";
-import ContactForm from "~/components/ContactForm";
 import { Button } from "flowbite-react";
+import ContactForm from "~/components/ContactForm";
+import Projects from "~/components/Projects";
+import img from "../../public/img/joseph.jpg";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faFile } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Tooltip } from "flowbite-react";
+import { useRouter } from "next/router";
 
 function Home() {
+  const router = useRouter();
   const { data: sessionData } = useSession();
   console.log(sessionData);
   return (
@@ -54,7 +56,15 @@ function Home() {
               come to life in the projects that I work on. Curious and
               interested in the wide variety of applications technology can have
               on business processes today. Strong passion for giving back to the
-              community.
+              community. To find my most recent experiences and views click{" "}
+              <span
+                onClick={() => router.push("/posts")}
+                style={{ cursor: "pointer" }}
+                className="duration-400
+               transition-all hover:text-xl hover:font-semibold hover:text-blue-400 dark:hover:text-yellow-200"
+              >
+                here.
+              </span>
             </p>
             <div className="flex">
               <Tooltip content="Resume" trigger="hover">

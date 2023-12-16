@@ -1,16 +1,15 @@
-import Image from "next/image";
 // import { api } from "../utils/api";
-import type { Project } from "~/types";
 import { Button } from "flowbite-react";
+import type { Project } from "~/types";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faClock,
-  faArrowRightLong,
-  faMicrochip,
-  faBullseye,
-} from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faArrowRightLong,
+  faBullseye,
+  faClock,
+  faMicrochip,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FlippableImage from "./FlippableImage";
 
 type ProjectProp = {
@@ -45,28 +44,35 @@ export default function Project({ project }: ProjectProp) {
               />
             </div>
             <div className="flex flex-row">
-              {github.length
-                ? github.map((link, index) => {
-                    return (
-                      <Button
-                        key={index}
-                        className="mx-2 mt-2 text-white active:bg-blue-800 dark:bg-gray-700 dark:bg-white dark:text-gray-900"
-                        href={link}
-                      >
-                        {index > 0 && github.length > 1
-                          ? "Backend"
-                          : github.length > 1
-                          ? "Frontend"
-                          : ""}
-                        <FontAwesomeIcon
-                          className="mx-1"
-                          icon={faGithub}
-                          size="xl"
-                        />
-                      </Button>
-                    );
-                  })
-                : "Repo Coming soon"}
+              {github.length ? (
+                github.map((link, index) => {
+                  return (
+                    <Button
+                      key={index}
+                      className="mx-2 mt-2 text-white active:bg-blue-800 dark:bg-gray-700 dark:bg-white dark:text-gray-900"
+                      href={link}
+                    >
+                      {index > 0 && github.length > 1
+                        ? "Backend"
+                        : github.length > 1
+                        ? "Frontend"
+                        : ""}
+                      <FontAwesomeIcon
+                        className="mx-1"
+                        icon={faGithub}
+                        size="xl"
+                      />
+                    </Button>
+                  );
+                })
+              ) : (
+                <Button
+                  className="mx-2 mt-2 text-white active:bg-gray-800 dark:bg-gray-700 dark:bg-white dark:text-gray-900"
+                  disabled={true}
+                >
+                  Repo coming soon
+                </Button>
+              )}
               {website.length ? (
                 <Button
                   className="mx-2 mt-2 text-white active:bg-blue-800 dark:bg-gray-700 dark:bg-white dark:text-gray-900"

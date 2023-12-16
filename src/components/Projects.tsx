@@ -1,4 +1,3 @@
-import { api } from "../utils/api";
 import Project from "./Project";
 
 export default function Projects() {
@@ -70,6 +69,21 @@ export default function Projects() {
       article: false,
       website: "",
       demo: "https://www.youtube.com/watch?v=S4vLItXFAvE",
+    },
+    {
+      id: "5",
+      title: "FootMaps",
+      text: "Leveraging sensor data and crowdsourcing to improve navigation on foot and reduce congestion",
+      backtext:
+        "FootMaps is a mobile application that interacts with beacon sensors at congested areas to gather accurate data on the crowd levels. This crowdsourced data is supplemented with movement sensor data from the user's mobile phone to provide a more accurate representation of the crowd levels. This data is then used to provide real-time recommendations to users on the best routes to take to their destination.",
+      img: "/img/Footmaps.png",
+      github: [],
+      date: "9-2023,10-2023",
+      techs: ["MongoDB Atlas", "Android", "AltBeacon Package"],
+      tags: ["QUT", "IAB330 Module"],
+      article: false,
+      website: "",
+      demo: "https://youtu.be/DdLznUj2GbY",
     },
   ];
 
