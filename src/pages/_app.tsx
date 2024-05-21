@@ -1,6 +1,6 @@
-import { type AppType } from "next/app";
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
+import { type AppType } from "next/app";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -8,9 +8,11 @@ config.autoAddCss = false;
 
 import { api } from "~/utils/api";
 
-import "~/styles/globals.css";
-import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react";
+
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "react-hot-toast";
+import "~/styles/globals.css";
 
 import Navbar from "~/components/Navbar";
 
@@ -19,13 +21,16 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <ThemeProvider attribute="class">
-      <SessionProvider session={session}>
-        <Navbar />
-        <Component {...pageProps} />
-        <Toaster />
-      </SessionProvider>
-    </ThemeProvider>
+    <>
+      <ThemeProvider attribute="class">
+        <SessionProvider session={session}>
+          <Navbar />
+          <Component {...pageProps} />
+          <Toaster />
+        </SessionProvider>
+      </ThemeProvider>
+      <Analytics />
+    </>
   );
 };
 
